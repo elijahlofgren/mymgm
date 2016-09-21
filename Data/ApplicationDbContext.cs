@@ -36,5 +36,7 @@ namespace mymgm.Data
         }
         
         public DbSet<Movie> Movie { get; set; }
+        
+        public DbSet<LocalEvent> LocalEvent { get; set; }
     }
 }
