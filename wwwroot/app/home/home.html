@@ -1,0 +1,23 @@
+<h2>Events</h2>
+<div class="row">
+    <div ng-repeat="localEvent in homeCtrl.localEvents track by localEvent.id">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-block">
+                    <a href="{{localEvent.url}}" target="_blank">
+                        <h4 class="card-title">{{localEvent.title}}</h4>
+                    </a>
+                    <h6 class="card-subtitle text-muted">{{localEvent.startDate | date: 'EEEE, MMMM d, yyyy h:mm a'}}
+                        <span ng-click="homeCtrl.addToCalendar(localEvent)" class="fa fa-calendar-plus-o" title="Add to Google Calendar"></span></h6>
+                </div>
+                <a href="{{localEvent.Url}}" target="_blank"><img src="http://webthumbnail.org/api/?width=250&height=250&screen=1280&url={{localEvent.url}}" alt="URL preview image"></a>
+                <iframe ng-src="{{ 'https://www.google.com/maps/embed/v1/place?q=' + localEvent.address +
+                '&zoom=13&key=AIzaSyBSC_c8irpYHCkIoQ5BUeLrDlGNOahbG1Q' }}"></iframe>
+                <div class="card-block">
+                    <p class="card-text">{{localEvent.description}}</p>
+                    <a href="{{localEvent.url}}" target="_blank" class="btn btn-primary">Read More...</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
