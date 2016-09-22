@@ -26,7 +26,7 @@ function HomeController($window, LocalEventService) {
     // FIXME: This function assumes Central Time zone 
     // which is fine for Montgomery, AL website but it should be made generic for future reuse.
     function addToCalendar(localEvent) {
-        var startDate = new Date(localEvent.StartDate);
+        var startDate = new Date(localEvent.startDate);
         // Add 5 hours so time is correct for Central Time.
         startDate.setHours(startDate.getHours() + 5);
         var startDateFormatted = dateToGoogleCalendarFormat(startDate);
@@ -37,10 +37,10 @@ function HomeController($window, LocalEventService) {
 
         // Note: Useful reference on Google Calendar links is here: http://stackoverflow.com/a/21653600/908677
         var url = 'https://www.google.com/calendar/render?action=TEMPLATE&text=' +
-            encodeURIComponent(localEvent.Title) +
+            encodeURIComponent(localEvent.title) +
             '&dates=' + startDateFormatted + '/' + endDateFormatted +
-            '&details=' + encodeURIComponent(localEvent.Description + ' For more details, see ' + localEvent.Url) +
-            '&location=' + encodeURIComponent(localEvent.Address) + '&sf=true&output=xml' +
+            '&details=' + encodeURIComponent(localEvent.description + ' For more details, see ' + localEvent.url) +
+            '&location=' + encodeURIComponent(localEvent.address) + '&sf=true&output=xml' +
             '&ctz=America/Chicago';
         $window.open(url);
     }
