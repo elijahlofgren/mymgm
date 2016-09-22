@@ -1,6 +1,20 @@
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "MyMGM";
 }
+
+<script src="/app/app.js"></script>
+<script src="/app/view1/view1.js"></script>
+<script src="/app/view2/view2.js"></script>
+<script src="/app/components/version/version.js"></script>
+<script src="/app/components/version/version-directive.js"></script>
+<script src="/app/components/version/interpolate-filter.js"></script>
+<ul class="menu">
+    <li><a href="#!/view1">view1</a></li>
+    <li><a href="#!/view2">view2</a></li>
+</ul>
+<div ng-view></div>
+<div>Angular seed app: v<span app-version></span></div>
+
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
