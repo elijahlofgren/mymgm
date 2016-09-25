@@ -25,7 +25,8 @@ namespace mymgm.Controllers
         [HttpGet]
         public IEnumerable<LocalEvent> GetLocalEvent()
         {
-            return _context.LocalEvent.OrderBy(item => item.StartDate);
+            // Show only upcoming events ordered by start date with earlier items showing first.
+            return _context.LocalEvent.OrderBy(item => item.StartDate).Where(item => item.StartDate > DateTime.Now);
         }
 
         // GET: api/LocalEventsApi/5
