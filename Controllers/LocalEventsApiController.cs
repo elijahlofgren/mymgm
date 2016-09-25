@@ -25,7 +25,7 @@ namespace mymgm.Controllers
         [HttpGet]
         public IEnumerable<LocalEvent> GetLocalEvent()
         {
-            return _context.LocalEvent;
+            return _context.LocalEvent.OrderBy(item => item.StartDate);
         }
 
         // GET: api/LocalEventsApi/5
