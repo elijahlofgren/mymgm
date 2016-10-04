@@ -58,3 +58,7 @@ textarea {
 .card-text {
     min-height: 170px;
 }
+
+.card {
+    min-width: 200px;
+}
