@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using mymgm.Data;
 using mymgm.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace mymgm.Controllers
 {
+    [Authorize]
     public class LocalEventsController : Controller
     {
         private readonly ApplicationDbContext _context;

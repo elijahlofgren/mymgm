@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using mymgm.Data;
 using mymgm.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace mymgm.Controllers
 {
@@ -50,6 +51,7 @@ namespace mymgm.Controllers
 
         // PUT: api/LocalEventsApi/5
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutLocalEvent([FromRoute] int id, [FromBody] LocalEvent localEvent)
         {
             if (!ModelState.IsValid)
@@ -85,6 +87,7 @@ namespace mymgm.Controllers
 
         // POST: api/LocalEventsApi
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> PostLocalEvent([FromBody] LocalEvent localEvent)
         {
             if (!ModelState.IsValid)
@@ -114,6 +117,7 @@ namespace mymgm.Controllers
 
         // DELETE: api/LocalEventsApi/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteLocalEvent([FromRoute] int id)
         {
             if (!ModelState.IsValid)
