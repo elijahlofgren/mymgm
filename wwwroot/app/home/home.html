@@ -14,7 +14,10 @@
                 <iframe ng-src="{{ 'https://www.google.com/maps/embed/v1/place?q=' + localEvent.address +
                 '&zoom=13&key=AIzaSyBSC_c8irpYHCkIoQ5BUeLrDlGNOahbG1Q' }}"></iframe>
                 <div class="card-block">
-                    <p class="card-text" ng-bind-html="localEvent.description"></p>
+                    <p class="card-text">
+                        <span ng-bind-html="localEvent.description | limitTo: 400">
+                        </span>{{localEvent.description.length > 400 ? '...': ''}}
+                    </p>
                     <a href="{{localEvent.url}}" target="_blank" class="btn btn-primary">Read More...</a>
                 </div>
             </div>
