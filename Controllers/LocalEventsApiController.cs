@@ -26,8 +26,10 @@ namespace mymgm.Controllers
         [HttpGet]
         public IEnumerable<LocalEvent> GetLocalEvent()
         {
+            DateTime now = DateTime.Now;
+            Console.WriteLine("now = " + now);
             // Show only upcoming events ordered by start date with earlier items showing first.
-            return _context.LocalEvent.OrderBy(item => item.StartDate).Where(item => item.StartDate > DateTime.Now);
+            return _context.LocalEvent.OrderBy(item => item.StartDate).Where(item => item.StartDate.CompareTo(now) == 1);
         }
 
         // GET: api/LocalEventsApi/5
